@@ -10,21 +10,21 @@ int main()
 	//std::cout << "Hello world!" << std::endl;
 	const int wWidth = 640;
 	const int wHeight = 480;
-	sf::RenderWindow window(sf::VideoMode(wWidth, wHeight), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode({wWidth, wHeight}), "SFML works!");
 	window.setFramerateLimit(60);
 
 	//ImGui
 
 	sf::CircleShape circle(50);
 	circle.setFillColor(sf::Color::Green);
-	circle.setPosition(300.0f, 300.0f);
+	circle.setPosition({300.0f, 300.0f});
 	int circleMoveSpeed = 0.1f;
 
 	float rx = 300;
 	float ry = 200;
 	sf::Vector2f rSize(rx, ry);
 	sf::RectangleShape rect(rSize);
-	rect.setPosition(100, 20);
+	rect.setPosition({100, 20});
 	rect.setFillColor(sf::Color(255, 0, 0));
 	rect.setOutlineColor(sf::Color::Yellow);
 	rect.setOutlineThickness(20.0f);
