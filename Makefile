@@ -1,5 +1,5 @@
 CXX := g++
-CXXFLAGS := -std=c++17 -Wall -Wextra -pedantic
+CXXFLAGS := -std=c++23 -Wall -Wextra -pedantic
 TARGET := ppgame
 SRC := main.cpp
 
