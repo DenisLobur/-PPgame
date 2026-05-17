@@ -5,7 +5,7 @@
 #include "Vec2.cpp"
 
 
-int main()
+int main(int argc, char* argv[])
 {
 	//std::cout << "Hello world!" << std::endl;
 	const int wWidth = 640;
