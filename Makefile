@@ -1,7 +1,16 @@
 CXX := g++
 CXXFLAGS := -std=c++23 -Wall -Wextra -pedantic
 TARGET := ppgame
-SRC := main.cpp
+SRC := \
+	main.cpp \
+	external/imgui/imgui.cpp \
+	external/imgui/imgui_draw.cpp \
+	external/imgui/imgui_widgets.cpp \
+	external/imgui/imgui_tables.cpp \
+	external/imgui-sfml/imgui-SFML.cpp
+
+IMGUI_CFLAGS := -Iexternal/imgui -Iexternal/imgui-sfml -DIMGUI_USER_CONFIG=\"imconfig-SFML.h\"
+OPENGL_LIBS := -lGL
 
 # Prefer pkg-config so include/lib paths are discovered automatically.
 SFML_CFLAGS := $(shell pkg-config --cflags sfml-graphics 2>/dev/null)
@@ -15,7 +24,7 @@ endif
 all: $(TARGET)
 
 $(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(SFML_CFLAGS) $(SRC) -o $(TARGET) $(SFML_LIBS)
+	$(CXX) $(CXXFLAGS) $(SFML_CFLAGS) $(IMGUI_CFLAGS) $(SRC) -o $(TARGET) $(SFML_LIBS) $(OPENGL_LIBS)
 
 run: $(TARGET)
 	./$(TARGET)
